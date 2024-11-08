@@ -1,0 +1,523 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+// App Bar
+.app-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 10px 20px;
+  color: white;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.3s;
+  font-family: "Amatic SC", cursive;
+  font-size: 25px;
+
+  &.scrolled {
+    background-color: rgba(51, 51, 51, 0.9);
+  }
+
+  // App Bar Brand
+  &__brand {
+    .logo {
+      max-height: 50px;
+    }
+  }
+
+  // Navigation
+  &__navigation {
+    ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+
+      li {
+        padding: 10px 20px;
+        border-bottom: 1px solid #555;
+      }
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      display: block;
+      padding: 10px 20px;
+      min-width: 44px;
+      min-height: 44px;
+      margin: 5px;
+      box-sizing: border-box;
+
+      &:hover {
+        color: #d5b263;
+        background-color: #555;
+      }
+    }
+  }
+}
+
+// Skip to Content
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+
+  &:focus {
+    left: 10px;
+    top: 10px;
+    z-index: 1000;
+    background-color: #fff;
+    color: #000;
+    padding: 10px;
+    border: 2px solid #000;
+  }
+}
+
+// Menu Toggle
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  min-width: 44px;
+  min-height: 44px;
+  margin: 5px;
+
+  @media (max-width: 768px) {
+    display: block;
+    order: 1;
+  }
+}
+
+// Hero Section
+.hero {
+  position: relative;
+  overflow: hidden;
+
+  &__image {
+    width: 100%;
+    height: auto;
+
+    @media (min-width: 1200px) {
+      min-width: 1000px;
+    }
+  }
+
+  &__title {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    font-family: "Amatic SC", cursive;
+    font-size: 30px;
+  }
+}
+
+// Explore Section
+.explore {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    font-family: "Amatic SC", cursive;
+    font-size: 3.5em;
+    margin-bottom: 15px;
+    color: #333;
+  }
+}
+
+// Restaurant List
+.restaurant-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+
+  // Restaurant Item
+  .restaurant-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+    transition: transform 0.2s;
+    text-decoration: none;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+
+    &__image {
+      width: 100%;
+      height: auto;
+      border-bottom: 2px solid #ccc;
+    }
+
+    &__content {
+      padding: 15px;
+      color: #555;
+    }
+
+    &__name {
+      font-weight: bold;
+      font-size: 1.6em;
+      margin: 10px 0;
+      color: #222;
+    }
+
+    &__city,
+    &__rating,
+    &__description {
+      font-size: 1em;
+      margin: 5px 0;
+      color: #666;
+    }
+  }
+}
+
+// Restaurant Detail
+.restaurant-detail {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 800px;
+}
+
+.restaurant-detail__name {
+  font-size: 2.5em;
+  margin-bottom: 15px;
+  color: #333;
+  text-align: center;
+}
+
+.restaurant-detail__image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.restaurant-detail__info {
+  margin-bottom: 20px;
+}
+
+.restaurant-detail__info p {
+  margin: 5px 0;
+  color: #555;
+}
+
+.restaurant-detail__menu {
+  margin-bottom: 20px;
+}
+
+.restaurant-detail__menu h3 {
+  font-size: 1.8em;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.restaurant-detail__menu-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.restaurant-detail__menu-list li {
+  background-color: #fff;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.restaurant-detail__reviews {
+  margin-bottom: 20px;
+}
+
+.restaurant-detail__reviews h3 {
+  font-size: 1.8em;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.review {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 4px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+
+#reviewForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#reviewName,
+#reviewText {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+#reviewText {
+  resize: none;
+  min-width: 44px;
+  min-height: 44px;
+}
+
+button[type="submit"] {
+  background-color: #333;
+  color: white;
+  padding: 12px 20px;
+  min-width: 44px;
+  min-height: 44px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #067c86;
+}
+
+#favoriteButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #d8b052;
+  color: white;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 32px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+#favoriteButton:hover {
+  background-color: #ffda09;
+}
+
+/* Favorite Section Styling */
+.favorite {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 16px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.favorite h2 {
+  font-family: "Amatic SC", cursive;
+  font-size: 2.5em;
+  color: #333;
+  margin-bottom: 24px;
+}
+
+#favorite-restaurants-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+  padding: 16px;
+}
+
+/* No Favorites Message Styling */
+#no-favorites-message {
+  font-size: 1.1em;
+  color: #777;
+  margin-top: 20px;
+  display: none;
+}
+
+/* General Card Styling */
+.favorite-restaurant-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  transition: transform 0.3s;
+  max-width: 320px;
+  height: 400px;
+  margin: auto;
+  position: relative;
+}
+
+.favorite-restaurant-card:hover {
+  transform: scale(1.02);
+}
+
+/* Image Styling */
+.favorite-restaurant-card__image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 2px solid #eee;
+}
+
+/* Content Styling */
+.favorite-restaurant-card__content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+/* Restaurant Name Styling */
+.favorite-restaurant-card__name {
+  font-size: 1.2em;
+  color: #333;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* City Styling */
+.favorite-restaurant-card__city {
+  font-size: 1em;
+  color: #666;
+  margin: 4px 0;
+}
+
+/* Rating Styling */
+.favorite-restaurant-card__rating {
+  align-items: center;
+  color: #ffcc00;
+}
+
+/* Star Icon Styling */
+.material-icons.star {
+  font-size: 16px;
+}
+
+/* Rating Number Styling */
+.rating-number {
+  margin-left: 8px;
+  font-size: 1em;
+  color: #333;
+}
+
+/* General Button Styling */
+.favorite-restaurant-card__buttons a,
+.favorite-restaurant-card__buttons button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  background-color: transparent;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+/* Buttons Container */
+.favorite-restaurant-card__buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+/* Icon Styling */
+.material-icons {
+  font-size: 24px;
+}
+
+/* Detail Button Styling */
+.detail-button {
+  color: #404142;
+}
+
+.detail-button:hover {
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+/* Unfavorite Button Styling */
+.unfavorite-button {
+  color: #dc3545;
+}
+
+.unfavorite-button:hover {
+  background-color: rgba(220, 53, 69, 0.1);
+}
+
+// Footer
+footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #333;
+  color: white;
+  font-family: "Amatic SC", cursive;
+  font-size: 25px;
+}
+
+// Responsiveness
+@media (max-width: 768px) {
+  .app-bar__navigation {
+    ul {
+      display: none;
+      flex-direction: column;
+      background-color: #444;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      padding: 10px 0;
+      z-index: 1;
+
+      &.active {
+        display: flex;
+      }
+    }
+  }
+
+  .favorite {
+    width: 100%;
+    h2 {
+      font-size: 2em;
+    }
+  }
+
+  #favorite-restaurants-container {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+
+  .favorite-restaurant-card {
+    width: 100%;
+    margin: 0;
+  }
+}
