@@ -5,11 +5,10 @@ describe("Liking and Unliking a Restaurant", () => {
   const restaurantData = { id: 1, name: "A Test Restaurant" };
 
   beforeEach(() => {
-    TestFactories.addFavoriteButtonContainer(); // Menambahkan container tombol
+    TestFactories.addFavoriteButtonContainer();
   });
 
   afterEach(async () => {
-    // Menghapus restoran setelah setiap tes
     await FavoriteIdb.deleteRestaurant(1);
   });
 
@@ -24,7 +23,6 @@ describe("Liking and Unliking a Restaurant", () => {
   });
 
   it("should show the unfavorite button when the restaurant has been liked before", async () => {
-    // Menyimpan restoran ke database
     await FavoriteIdb.putRestaurant(restaurantData);
 
     await TestFactories.createFavoriteButtonPresenterWithRestaurant(
@@ -38,54 +36,45 @@ describe("Liking and Unliking a Restaurant", () => {
 
   it("should be able to like a restaurant", async () => {
     let restaurant = await FavoriteIdb.getRestaurant(1);
-    expect(restaurant).toBeFalsy(); // Pastikan restoran belum ada di database
+    expect(restaurant).toBeFalsy();
 
     await TestFactories.createFavoriteButtonPresenterWithRestaurant(
       restaurantData
     );
 
-    // Klik tombol untuk menyukai restoran
     const favoriteButton = document.querySelector(
       '[aria-label="favorite this restaurant"]'
     );
     favoriteButton.click();
 
-    // Tunggu beberapa saat agar perubahan bisa diproses
-    await new Promise((resolve) => setTimeout(resolve, 500)); // Delay to wait for the async operation
+    await new Promise((resolve) => setTimeout(resolve, 500));
 
-    // Verifikasi apakah restoran ada di database setelah disukai
     restaurant = await FavoriteIdb.getRestaurant(1);
-    expect(restaurant).toEqual(restaurantData); // Memastikan restoran sudah ada di database
+    expect(restaurant).toEqual(restaurantData);
 
-    // Tambahkan log untuk memastikan apakah restoran ada di database
     console.log("Restaurant after liking:", restaurant);
   });
 
   it("should be able to unlike a restaurant", async () => {
-    // Menyimpan restoran ke database
     await FavoriteIdb.putRestaurant(restaurantData);
 
     let restaurant = await FavoriteIdb.getRestaurant(1);
-    expect(restaurant).toEqual(restaurantData); // Pastikan restoran sudah ada di database
+    expect(restaurant).toEqual(restaurantData);
 
     await TestFactories.createFavoriteButtonPresenterWithRestaurant(
       restaurantData
     );
 
-    // Klik tombol untuk membatalkan suka restoran
     const unfavoriteButton = document.querySelector(
       '[aria-label="unfavorite this restaurant"]'
     );
     unfavoriteButton.click();
 
-    // Tunggu beberapa saat agar penghapusan berhasil
-    await new Promise((resolve) => setTimeout(resolve, 500)); // Delay to wait for the async operation
+    await new Promise((resolve) => setTimeout(resolve, 500));
 
-    // Verifikasi apakah restoran sudah terhapus dari database
     restaurant = await FavoriteIdb.getRestaurant(1);
-    expect(restaurant).toBeFalsy(); // Pastikan restoran terhapus dari database
+    expect(restaurant).toBeFalsy();
 
-    // Tambahkan log untuk memeriksa setelah penghapusan
     console.log("Restaurant after unliking:", restaurant);
   });
 });
