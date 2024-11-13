@@ -1,4 +1,5 @@
-import FavoriteIdb from '../data/favorite-idb';
+// favorite-button-initiator.js
+import FavoriteIdb from "../data/favorite-idb";
 
 const FavoriteButtonInitiator = {
   async init({ favoriteButtonContainer, restaurant }) {
@@ -7,7 +8,7 @@ const FavoriteButtonInitiator = {
 
     await this.renderButton();
 
-    this._favoriteButtonContainer.addEventListener('click', async () => {
+    this._favoriteButtonContainer.addEventListener("click", async () => {
       await this._toggleFavorite();
       await this.renderButton();
     });
@@ -18,11 +19,15 @@ const FavoriteButtonInitiator = {
 
     if (restaurant) {
       this._favoriteButtonContainer.innerHTML = `
-        <span class="favorite-button__icon">★</span>
+        <button aria-label="unfavorite this restaurant" id="favoriteButton" class="favorite">
+          <span class="favorite-button__icon">★</span>
+        </button>
       `;
     } else {
       this._favoriteButtonContainer.innerHTML = `
-        <span class="favorite-button__icon">☆</span>
+        <button aria-label="favorite this restaurant" id="favoriteButton" class="favorite">
+          <span class="favorite-button__icon">☆</span>
+        </button>
       `;
     }
   },
