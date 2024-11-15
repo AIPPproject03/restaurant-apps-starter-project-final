@@ -1,5 +1,5 @@
 // favorite-button-initiator.js
-import FavoriteIdb from "../data/favorite-idb";
+import FavoriteIdb from '../data/favorite-idb';
 
 const FavoriteButtonInitiator = {
   async init({ favoriteButtonContainer, restaurant }) {
@@ -8,7 +8,7 @@ const FavoriteButtonInitiator = {
 
     await this.renderButton();
 
-    this._favoriteButtonContainer.addEventListener("click", async () => {
+    this._favoriteButtonContainer.addEventListener('click', async () => {
       await this._toggleFavorite();
       await this.renderButton();
     });

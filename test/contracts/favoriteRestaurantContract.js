@@ -1,7 +1,7 @@
 const itActsAsFavoriteRestaurantModel = (favoriteRestaurant) => {
-  it("should return the restaurant that has been added", async () => {
-    const testRestaurant1 = { id: 1, name: "Restaurant 1" };
-    const testRestaurant2 = { id: 2, name: "Restaurant 2" };
+  it('should return the restaurant that has been added', async () => {
+    const testRestaurant1 = { id: 1, name: 'Restaurant 1' };
+    const testRestaurant2 = { id: 2, name: 'Restaurant 2' };
 
     await favoriteRestaurant.putRestaurant(testRestaurant1);
     await favoriteRestaurant.putRestaurant(testRestaurant2);
@@ -12,17 +12,17 @@ const itActsAsFavoriteRestaurantModel = (favoriteRestaurant) => {
     expect(await favoriteRestaurant.getRestaurant(3)).toBeNull();
   });
 
-  it("should refuse a restaurant from being added if it does not have the correct property", async () => {
-    const invalidRestaurant = { name: "Invalid Restaurant" };
+  it('should refuse a restaurant from being added if it does not have the correct property', async () => {
+    const invalidRestaurant = { name: 'Invalid Restaurant' };
 
     await favoriteRestaurant.putRestaurant(invalidRestaurant);
 
     expect(await favoriteRestaurant.getAllRestaurants()).toEqual([]);
   });
 
-  it("can return all of the restaurants that have been added", async () => {
-    const testRestaurant1 = { id: 1, name: "Restaurant 1" };
-    const testRestaurant2 = { id: 2, name: "Restaurant 2" };
+  it('can return all of the restaurants that have been added', async () => {
+    const testRestaurant1 = { id: 1, name: 'Restaurant 1' };
+    const testRestaurant2 = { id: 2, name: 'Restaurant 2' };
 
     await favoriteRestaurant.putRestaurant(testRestaurant1);
     await favoriteRestaurant.putRestaurant(testRestaurant2);
@@ -33,10 +33,10 @@ const itActsAsFavoriteRestaurantModel = (favoriteRestaurant) => {
     ]);
   });
 
-  it("should remove favorite restaurant", async () => {
-    const testRestaurant1 = { id: 1, name: "Restaurant 1" };
-    const testRestaurant2 = { id: 2, name: "Restaurant 2" };
-    const testRestaurant3 = { id: 3, name: "Restaurant 3" };
+  it('should remove favorite restaurant', async () => {
+    const testRestaurant1 = { id: 1, name: 'Restaurant 1' };
+    const testRestaurant2 = { id: 2, name: 'Restaurant 2' };
+    const testRestaurant3 = { id: 3, name: 'Restaurant 3' };
 
     await favoriteRestaurant.putRestaurant(testRestaurant1);
     await favoriteRestaurant.putRestaurant(testRestaurant2);
@@ -50,10 +50,10 @@ const itActsAsFavoriteRestaurantModel = (favoriteRestaurant) => {
     ]);
   });
 
-  it("should handle request to remove a restaurant even though the restaurant has not been added", async () => {
-    const testRestaurant1 = { id: 1, name: "Restaurant 1" };
-    const testRestaurant2 = { id: 2, name: "Restaurant 2" };
-    const testRestaurant3 = { id: 3, name: "Restaurant 3" };
+  it('should handle request to remove a restaurant even though the restaurant has not been added', async () => {
+    const testRestaurant1 = { id: 1, name: 'Restaurant 1' };
+    const testRestaurant2 = { id: 2, name: 'Restaurant 2' };
+    const testRestaurant3 = { id: 3, name: 'Restaurant 3' };
 
     await favoriteRestaurant.putRestaurant(testRestaurant1);
     await favoriteRestaurant.putRestaurant(testRestaurant2);

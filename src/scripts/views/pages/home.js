@@ -1,8 +1,8 @@
 // src/public/views/pages/home.js
-import RestaurantSource from "../../data/restaurant-source";
-import CONFIG from "../../globals/config";
-import "lazysizes";
-import "lazysizes/plugins/parent-fit/ls.parent-fit";
+import RestaurantSource from '../../data/restaurant-source';
+import CONFIG from '../../globals/config';
+import 'lazysizes';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 
 const Home = {
   async render() {
@@ -26,7 +26,7 @@ const Home = {
 
   async afterRender() {
     const restaurants = await RestaurantSource.list();
-    const restaurantListContainer = document.getElementById("restaurant-list");
+    const restaurantListContainer = document.getElementById('restaurant-list');
 
     restaurants.forEach((restaurant) => {
       restaurantListContainer.innerHTML += `
