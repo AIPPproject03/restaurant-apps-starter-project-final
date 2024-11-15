@@ -1,7 +1,7 @@
-import { itActsAsFavoriteRestaurantModel } from "./contracts/favoriteRestaurantContract";
-import FavoriteIdb from "../src/scripts/data/favorite-idb";
+import { itActsAsFavoriteRestaurantModel } from './contracts/favoriteRestaurantContract';
+import FavoriteIdb from '../src/scripts/data/favorite-idb';
 
-describe("Favorite Restaurant Idb Contract Test Implementation", () => {
+describe('Favorite Restaurant Idb Contract Test Implementation', () => {
   afterEach(async () => {
     const allRestaurants = await FavoriteIdb.getAllRestaurants();
     await Promise.all(
