@@ -5,12 +5,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fried Rice King</title>
-  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://fonts.googleapis.com/icon?family=Material+Icons" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
   <link rel="icon" href="./favicon.png">
   <link rel="manifest" href="/manifest.json">
-
-
+  <link rel="preload" href="./images/heros/hero-image_1-1200.jpg" as="image" type="image/jpeg" />
+  <link rel="preload" href="./images/heros/hero-image_1-800.jpg" as="image" type="image/jpeg"
+    media="(max-width: 800px)" />
+  <link rel="preload" href="./images/heros/hero-image_1-480.jpg" as="image" type="image/jpeg"
+    media="(max-width: 480px)" />
+  <link rel="preload" href="./images/heros/hero-image_1-1200.webp" as="image" type="image/webp" />
+  <link rel="preload" href="./images/heros/hero-image_1-800.webp" as="image" type="image/webp"
+    media="(max-width: 800px)" />
+  <link rel="preload" href="./images/heros/hero-image_1-480.webp" as="image" type="image/webp"
+    media="(max-width: 480px)" />
 </head>
 
 <body>
@@ -18,7 +29,7 @@
     <a href="#main-content" class="skip-to-content">Skip to Content</a>
     <button id="hamburgerButton" class="menu-toggle" aria-label="Open navigation menu">☰</button>
     <div class="app-bar__brand">
-      <img src="../images/logo/logo.png" alt="Fried Rice King Logo" class="logo">
+      <img src="./images/logo/logo.png" alt="Fried Rice King Logo" class="logo">
     </div>
     <nav id="navigationDrawer" class="app-bar__navigation">
       <ul>
@@ -31,8 +42,18 @@
 
   <main id="main-content" tabindex="0">
     <section class="hero">
-      <img src="../images/heros/hero-image_1.jpg" alt="Delicious food served at Fried Rice King" class="hero__image">
-      <h2 class="hero__title">Welcome to Fried Rice King</h2>
+      <picture>
+        <source type="image/webp" media="(max-width: 480px)" srcset="./images/heros/hero-image_1-480.webp">
+        <source type="image/webp" media="(max-width: 800px)" srcset="./images/heros/hero-image_1-800.webp">
+        <source type="image/webp" media="(min-width: 801px)" srcset="./images/heros/hero-image_1-1200.webp">
+
+        <source type="image/jpeg" media="(max-width: 480px)" srcset="./images/heros/hero-image_1-480.jpg">
+        <source type="image/jpeg" media="(max-width: 800px)" srcset="./images/heros/hero-image_1-800.jpg">
+        <source type="image/jpeg" media="(min-width: 801px)" srcset="./images/heros/hero-image_1-1200.jpg">
+
+        <picture src="./images/heros/hero-image_1-1200.webp" alt="Delicious food served at Fried Rice King"
+          class="hero__image" width="1200" height="600" loading="lazy">
+        </picture>
     </section>
 
     <section class="explore">
@@ -46,6 +67,5 @@
     <p>Copyright © 2024 - Fried Rice King</p>
   </footer>
 </body>
-
 
 </html>

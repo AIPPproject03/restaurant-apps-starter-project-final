@@ -27,12 +27,13 @@ Scenario("liking and unliking a restaurant", async ({ I }) => {
 
   // Click the first restaurant
   I.click(firstRestaurant);
-  I.saveScreenshot("restaurant_detail_page.png"); // Screenshot detail restoran
+  I.wait(2);
+  I.saveScreenshot("restaurant_detail_page.png");
 
   // Like the restaurant
   I.seeElement("#favoriteButton");
   I.click("#favoriteButton");
-  I.saveScreenshot("after_liking_restaurant.png"); // Screenshot setelah menyukai
+  I.saveScreenshot("after_liking_restaurant.png");
 
   // Go back to the favorite page
   I.amOnPage("/#/favorite");
