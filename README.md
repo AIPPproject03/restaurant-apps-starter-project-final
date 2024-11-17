@@ -85,10 +85,6 @@ We welcome contributions! If you'd like to contribute to this project, feel free
 
 Please ensure that your code adheres to the existing code style and includes tests if applicable.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## Acknowledgments
 
 - Inspiration for the project comes from the growing interest in food catalogs and restaurant review platforms.
