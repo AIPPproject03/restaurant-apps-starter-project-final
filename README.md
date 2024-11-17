@@ -1,6 +1,6 @@
 Berikut adalah template untuk `README.md` dari proyek katalog restoran Anda, "Fried Rice King." Silakan sesuaikan dengan detail lebih lanjut yang relevan untuk proyek Anda:
 
-```markdown
+
 # Fried Rice King - Restaurant Catalogue
 
 **Fried Rice King** is a web application that allows users to explore a variety of fried rice dishes from different restaurants. It features an interactive and user-friendly interface for browsing restaurants, viewing restaurant details, and managing favorite restaurants.
