@@ -93,4 +93,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - Inspiration for the project comes from the growing interest in food catalogs and restaurant review platforms.
 - Special thanks to the open-source community for providing useful libraries and tools.
-```
